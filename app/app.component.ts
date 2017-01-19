@@ -7,25 +7,40 @@ import { Keg } from './keg.model';
   <div class="container">
     <h1>Big Bar of Big Beers</h1>
     <h2>Big Beers</h2>
+
+    <patron-list [detailKegList]="masterKegList" (detailClickSender)="detailKeg($event)"></patron-list>
+
+    <patron-detail [detailListDetail]="selectedDetailKeg" (hideDetailButtonClickedSender)="hideDetail()"
+></patron-detail>
+
+
+    <hr>
+
     <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></keg-list>
+
+
+
     <button (click)="showNewForm()">Add New Keg</button>
 
     <hr>
+
     <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickedSender)="finishedEditing()"></edit-keg>
     <new-keg [addNewKeg]="newKeg" (newKegSender)="addKeg($event)" (newButtonClickedSender)="finishedNew()"></new-keg>
+
   </div>
   `
 })
 
 
 export class AppComponent {
+  selectedDetailKeg: null;
 
   newKeg = null;
 
   selectedKeg = null;
 
   masterKegList: Keg[] = [
-    new Keg('Bob Ale', 'Bob Brewery', 50, 6),
+    new Keg('Bob\'\s Ale', 'Bob Brewery', 50, 6),
     new Keg('Mankiller', 'The Prison Brewery', 10, 20),
     new Keg('Chicken Beer', 'Farmyard', 75, 10),
     new Keg('Weak Water', 'Preschool Brewery', 30, 1),
@@ -35,6 +50,14 @@ export class AppComponent {
   editKeg(clickedKeg) {
     this.selectedKeg = clickedKeg;
   }
+  detailKeg(kegToShowDetail){
+    this.selectedDetailKeg = kegToShowDetail;
+  }
+  
+  hideDetail() {
+    this.selectedDetailKeg = null;
+  }
+
   showNewForm(){
     this.newKeg = true;
   }
@@ -48,7 +71,5 @@ export class AppComponent {
   addKeg(newKegFromChild: Keg) {
     this.masterKegList.push(newKegFromChild);
   }
-
-
 
 }

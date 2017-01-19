@@ -1,3 +1,4 @@
+
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Keg } from './keg.model';
 
@@ -30,5 +31,5 @@ export class EditKegComponent {
   doneButtonClicked() {
   	this.doneButtonClickedSender.emit();
   }
-  
+
 }

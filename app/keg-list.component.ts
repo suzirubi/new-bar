@@ -6,7 +6,7 @@ import { Keg } from './keg.model';
   selector: 'keg-list',
   template: `
     <ul>
-      <li *ngFor="let currentKeg of childKegList">{{currentKeg.name}} <button (click)="editButtonHasBeenClicked(currentKeg)">Edit!!!</button></li>
+      <li *ngFor="let currentKeg of childKegList">{{currentKeg.name}} <button (click)="editButtonHasBeenClicked(currentKeg)">Edit!</button></li>
     </ul>
   `
 })
