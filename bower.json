@@ -1,0 +1,20 @@
+{
+  "name": "angular2-bar",
+  "description": "",
+  "main": "",
+  "authors": [
+    "SuziRubino <suzi@suzirubi.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
