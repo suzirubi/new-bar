@@ -7,12 +7,12 @@ import { Keg } from './keg.model';
   <div class="container">
     <h1>Big Bar of Big Beers</h1>
     <h2>Big Beers</h2>
-    <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)" (clickSender)="addNewKeg($event)"></keg-list>
+    <keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></keg-list>
     <button (click)="showNewForm()">Add New Keg</button>
 
     <hr>
     <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickedSender)="finishedEditing()"></edit-keg>
-    <new-keg [addNewKeg]="newKeg" (newKegSender)="addKeg($event)"></new-keg>
+    <new-keg [addNewKeg]="newKeg" (newKegSender)="addKeg($event)" (newButtonClickedSender)="finishedNew()"></new-keg>
   </div>
   `
 })
@@ -42,7 +42,9 @@ export class AppComponent {
   finishedEditing() {
     this.selectedKeg = null;
   }
-
+  finishedNew() {
+    this.newKeg = null;
+  }
   addKeg(newKegFromChild: Keg) {
     this.masterKegList.push(newKegFromChild);
   }
