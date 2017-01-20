@@ -26,14 +26,17 @@ import { Keg } from './keg.model';
 
     <edit-keg [childSelectedKeg]="selectedKeg" (doneButtonClickedSender)="finishedEditing()"></edit-keg>
     <new-keg [addNewKeg]="newKeg" (newKegSender)="addKeg($event)" (newButtonClickedSender)="finishedNew()"></new-keg>
+    <sell-pint [pintSelectedKeg]="selectedKeg"> </sell-pint>
 
   </div>
   `
 })
 
 
+
+
 export class AppComponent {
-  selectedDetailKeg: null;
+  selectedDetailKeg = null;
 
   newKeg = null;
 
@@ -53,7 +56,7 @@ export class AppComponent {
   detailKeg(kegToShowDetail){
     this.selectedDetailKeg = kegToShowDetail;
   }
-  
+
   hideDetail() {
     this.selectedDetailKeg = null;
   }
